@@ -19,6 +19,6 @@ class Grid
 
 	cell(...coord)
 	{
-		return new Rect2(this.cellToPoint(new Vector(...coord)), this.cellSize);
+		return new Rect(this.cellToPoint(new Vector(...coord)), this.cellSize);
 	}
 }
