@@ -21,5 +21,4 @@ class Grid
 	{
 		return new Rect(this.cellToPoint(new Vector(...coord)), this.cellSize);
 	}
-	
 }
