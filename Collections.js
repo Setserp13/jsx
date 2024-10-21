@@ -1,37 +1,32 @@
-class Array
+function fromFunction(length, func)
 {
-	static fromFunction(length, func)
+	var result = [];
+	for(var i = 0; i < length; i++)
 	{
-		var result = [];
-		for(var i = 0; i < length; i++)
-		{
-			result.push(func(i));
-		}
-		return result;
+		result.push(func(i));
 	}
-
-	static full(length, value) { return Array.fromFunction(length, (i) => { return value; }) }
+	return result;
 }
 
-class Matrix
-{
-	static fromFunction(width, height, func)
-	{
-		var result = [];
-		for(var i = 0; i < width; i++)
-		{
-			var row = [];
-			for(var j = 0; j < height; j++)
-			{
-				row.push(func(i, j));
-			}
-			result.push(row);
-		}
-		return result;
-	}
-
-	static full(width, height, value) { return Matrix.fromFunction(width, height, (i, j) => { return value; }) }
+function full(length, value) { return fromFunction(length, (i) => { return value; }) }
 }
+
+function fromFunction2(width, height, func)
+{
+	var result = [];
+	for(var i = 0; i < width; i++)
+	{
+		var row = [];
+		for(var j = 0; j < height; j++)
+		{
+			row.push(func(i, j));
+		}
+		result.push(row);
+	}
+	return result;
+}
+
+function full2(width, height, value) { return fromFunction2(width, height, (i, j) => { return value; }) }
 
 
 
