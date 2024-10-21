@@ -1,3 +1,43 @@
+class Array
+{
+	static fromFunction(length, func)
+	{
+		var result = [];
+		for(var i = 0; i < length; i++)
+		{
+			result.push(func(i));
+		}
+		return result;
+	}
+
+	static full(length, value) { return Array.fromFunction(length, (i) => { return value; }) }
+}
+
+class Matrix
+{
+	static fromFunction(width, height, func)
+	{
+		var result = [];
+		for(var i = 0; i < width; i++)
+		{
+			var row = [];
+			for(var j = 0; j < height; j++)
+			{
+				row.push(func(i, j));
+			}
+			result.push(row);
+		}
+		return result;
+	}
+
+	static full(width, height, value) { return Matrix.fromFunction(width, height, (i, j) => { return value; }) }
+
+	static inRange(matrix, i, j)
+	{
+		return i > -1 && i < size(matrix).x && j > -1 && j < size(matrix).y;
+	}
+}
+
 Array.prototype.addColumn = function(column)
 {
 	for(var i = 0; i < this.length; i++)
