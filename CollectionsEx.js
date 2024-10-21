@@ -45,6 +45,15 @@ Array.prototype.inRange2 = function(i, j)
 	//return i > -1 && i < this.size2()[0] && j > -1 && j < this.size2()[1];
 }
 
+Array.prototype.getItem = function(i, defaultValue = undefined)
+{
+	if(this.inRange(i))
+	{
+		return this[i];
+	}
+	return defaultValue;
+}
+
 Array.prototype.getItem2 = function(i, j, defaultValue = undefined)
 {
 	if(this.inRange(i))
