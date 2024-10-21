@@ -9,7 +9,6 @@ function fromFunction(length, func)
 }
 
 function full(length, value) { return fromFunction(length, (i) => { return value; }) }
-}
 
 function fromFunction2(width, height, func)
 {
