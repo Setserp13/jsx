@@ -31,11 +31,18 @@ class Matrix
 	}
 
 	static full(width, height, value) { return Matrix.fromFunction(width, height, (i, j) => { return value; }) }
+}
 
-	static inRange(matrix, i, j)
-	{
-		return i > -1 && i < size(matrix).x && j > -1 && j < size(matrix).y;
-	}
+
+
+Array.prototype.size2 = function()
+{
+	return [this.length, this[0].length];
+}
+
+Array.prototype.inRange2 = function(i, j)
+{
+	return i > -1 && i < this.size()[0] && j > -1 && j < this.size()[1];
 }
 
 Array.prototype.addColumn = function(column)
