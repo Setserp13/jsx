@@ -55,10 +55,7 @@ class Vector extends Array
 
 	floor() { return new Vector(...this.map(Math.floor)); }
 
-	lerp(to, t)
-	{
-		return new Vector(...map((a, b) => Mathf.lerp(a, b, t), this, to));
-	}
+	lerp(to, t) { return new Vector(...map((a, b) => Mathf.lerp(a, b, t), this, to)); }
 }
 
 class Rect
