@@ -34,9 +34,27 @@ Array.prototype.size2 = function()
 	return [this.length, this[0].length];
 }
 
+Array.prototype.inRange = function(i)
+{
+	return i > -1 && i < this.length;
+}
+
 Array.prototype.inRange2 = function(i, j)
 {
-	return i > -1 && i < this.size2()[0] && j > -1 && j < this.size2()[1];
+	return this.inRange(i) && this[0].inRange(j);
+	//return i > -1 && i < this.size2()[0] && j > -1 && j < this.size2()[1];
+}
+
+Array.prototype.getItem2 = function(i, j, defaultValue = undefined)
+{
+	if(this.inRange(i))
+	{
+		if(this[i].inRange(j))
+		{
+			return this[i][j];
+		}
+	}
+	return defaultValue;
 }
 
 Array.prototype.addColumn = function(column)
