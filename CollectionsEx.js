@@ -36,7 +36,7 @@ Array.prototype.size2 = function()
 
 Array.prototype.inRange2 = function(i, j)
 {
-	return i > -1 && i < this.size()[0] && j > -1 && j < this.size()[1];
+	return i > -1 && i < this.size2()[0] && j > -1 && j < this.size2()[1];
 }
 
 Array.prototype.addColumn = function(column)
