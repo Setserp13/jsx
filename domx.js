@@ -19,7 +19,44 @@ Element.prototype.with = function (props = {}) {
 	return this;
 };
 
-function element(tag, props = {}, ...children) {
+export function element(tag, props = {}, ...children) {
+
+	const el = document.createElement(tag);
+
+	for (const [key, value] of Object.entries(props)) {
+
+		if (key.startsWith("on")) {
+			el.addEventListener(
+				key.substring(2),
+				value
+			);
+		}
+		else if (key in el) {
+			el[key] = value;
+		}
+		else {
+			el.setAttribute(key, value);
+		}
+	}
+
+	for (const child of children) {
+
+		if (child == null)
+			continue;
+
+		if (child instanceof Node)
+			el.appendChild(child);
+
+		else
+			el.appendChild(
+				document.createTextNode(String(child))
+			);
+	}
+
+	return el;
+}
+
+/*function element(tag, props = {}, ...children) {
 
 	const el = document.createElement(tag).with(props);
 
@@ -35,4 +72,4 @@ function element(tag, props = {}, ...children) {
 	}
 
 	return el;
-};
+};*/
