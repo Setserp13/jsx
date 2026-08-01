@@ -19,7 +19,7 @@ Element.prototype.with = function (props = {}) {
 	return this;
 };
 
-export function element(tag, props = {}, ...children) {
+function element(tag, props = {}, ...children) {
 
 	const el = document.createElement(tag);
 
