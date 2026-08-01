@@ -55,21 +55,3 @@ function element(tag, props = {}, ...children) {
 
 	return el;
 }
-
-/*function element(tag, props = {}, ...children) {
-
-	const el = document.createElement(tag).with(props);
-
-	for (const child of children) {
-
-		if (child == null)
-			continue;
-
-		if (typeof child === "string")
-			el.appendChild(document.createTextNode(child));
-		else
-			el.appendChild(child);
-	}
-
-	return el;
-};*/
